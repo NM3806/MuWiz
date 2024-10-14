@@ -2,8 +2,9 @@ import React, { useEffect, useState, useRef } from 'react'
 import {CiSquareChevLeft, CiSquareChevRight } from "react-icons/ci";
 import GlobalAPI from '../services/GlobalAPI';
 import MovieCard from './MovieCard';
+import VrMovieCard from './VrMovieCard';
 
-function MovieList({genreID}) {
+function MovieList({genreID, index}) {
     const [movieList, setMovieList]=useState([])
     const element=useRef(null);
     useEffect(()=>{
@@ -24,20 +25,20 @@ function MovieList({genreID}) {
     }
 
   return (
-    <div>
+    <div className='relative'>
         <CiSquareChevLeft onClick={()=>slideLeft(element.current)} 
-            className={`text-[50px] text-white p-2 z-10 cursor-pointer hidden md:block absolute
-            ${index_%3==0?'mt-[80px]':'mt-[150px]'} `}/>
+            className={`text-[50px] text-slate-200 p-2 mt-12 ml-[-20px] z-10 cursor-pointer hidden md:block absolute`}/>
 
-        <div className='flex overflow-x-auto gap-8 pt-3 px-3 pb-1 scrollbar-hide scroll-smooth '>
+        <div ref={element} className='flex overflow-x-auto gap-8 pt-4 px-3 pb-8 scrollbar-hide scroll-smooth '>
             {movieList.map((item, index)=>(
-                <MovieCard key={item.id} movie={item}/>
+                <>
+                    {<MovieCard key={item.id} movie={item} index_={index}/>}
+                </>
             ))}
         </div>
 
         <CiSquareChevRight onClick={()=>slideRight(element.current)}
-            className={`text-[50px] text-white hidden md:block p-2 cursor-pointer z-10 top-0 absolute right-0 
-            ${index_%3==0?'mt-[80px]':'mt-[150px]'}`}/> 
+            className={`text-[50px] text-slate-200 hidden md:block p-2 mt-12 cursor-pointer z-10 top-0 absolute right-0 `}/> 
         
     </div>
   )

@@ -22,7 +22,7 @@ function ProdHouse() {
     ];
 
   return (
-    <div className='flex gap-2 md:gap-5 px-3 md:px-14'>
+    <div className='flex gap-2 md:gap-5 px-3 md:px-14 md:py-5'>
         {ProdHouseList.map((item)=>(
             <div className='relative bg-slate-800 border-2 border-slate-600 rounded-xl hover:scale-110 transition-all duration-200 cursor-pointer 
             shadow-lg shadow-black overflow-hidden'>
