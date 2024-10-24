@@ -4,7 +4,7 @@ import GlobalAPI from '../services/GlobalAPI';
 import MovieCard from './MovieCard';
 import VrMovieCard from './VrMovieCard';
 
-function MovieList({genreID, index}) {
+function MovieList({genreID, index_}) {
     const [movieList, setMovieList]=useState([])
     const element=useRef(null);
     useEffect(()=>{
@@ -27,18 +27,21 @@ function MovieList({genreID, index}) {
   return (
     <div className='relative'>
         <CiSquareChevLeft onClick={()=>slideLeft(element.current)} 
-            className={`text-[50px] text-slate-200 p-2 mt-12 ml-[-20px] z-10 cursor-pointer hidden md:block absolute`}/>
+            className={`text-[50px] text-slate-200 p-2 ml-[-20px] z-10 cursor-pointer hidden md:block absolute
+                        ${index_%3==0? 'mt-36' : 'mt-12'}`
+            }/>
 
         <div ref={element} className='flex overflow-x-auto gap-8 pt-4 px-3 pb-8 scrollbar-hide scroll-smooth '>
             {movieList.map((item, index)=>(
                 <>
-                    {<MovieCard key={item.id} movie={item} index_={index}/>}
+                    {index_%3==0 ? <VrMovieCard movie={item}/> : <MovieCard key={item.id} movie={item}/>}
                 </>
             ))}
         </div>
 
         <CiSquareChevRight onClick={()=>slideRight(element.current)}
-            className={`text-[50px] text-slate-200 hidden md:block p-2 mt-12 cursor-pointer z-10 top-0 absolute right-0 `}/> 
+            className={`text-[50px] text-slate-200 hidden md:block p-2 cursor-pointer z-10 top-0 absolute right-0 
+                        ${index_%3==0? 'mt-36' : 'mt-12'}`}/> 
         
     </div>
   )
