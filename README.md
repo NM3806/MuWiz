@@ -2,7 +2,8 @@
 
 **Muwiz** is a movie web app inspired by Disney+, designed to provide users with an immersive experience in exploring trending movies, genres, and detailed visuals. The application leverages The Movie Database (TMDB) API for real-time movie data and is built using React with Tailwind CSS for a responsive and modern design.
 
-![Muwiz Banner]()
+![image](https://github.com/user-attachments/assets/521b8a04-fe64-4125-a819-cd41c52292d3)
+
 
 [**Live Demo**](https://muwiz.netlify.app)
 
