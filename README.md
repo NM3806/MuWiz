@@ -5,7 +5,7 @@
 ![image](https://github.com/user-attachments/assets/521b8a04-fe64-4125-a819-cd41c52292d3)
 
 
-[**Live Demo**](https://muwiz.netlify.app)
+[**Live Demo**](https://muwiz.netlify.app) *Use VPN in case components do not load*
 
 ## Table of Contents
 - [Features](#features)
